@@ -1,0 +1,45 @@
+<odoo>
+  <template id="report_patient_template">
+    <t t-call="web.external_layout">
+         <t t-foreach="docs" t-as="o">
+            <div class="page">
+                <h2>Patient Status Report</h2>
+
+                <p><strong>Name:</strong> <t t-esc="o.first_name"/> <t t-esc="o.last_name"/></p>
+                <p><strong>Birth date:</strong> <t t-esc="o.birth_date"/></p>
+                <p><strong>Age:</strong> <t t-esc="o.age"/></p>
+                <p><strong>PCR:</strong> <t t-esc="o.pcr"/></p>
+                <p><strong>CR Ratio:</strong> <t t-esc="o.cr_ratio"/></p>
+                <p><strong>Blood Type:</strong> <t t-esc="o.blood_type"/></p>
+                <p><strong>Email:</strong> <t t-esc="o.email"/></p>
+                <p><strong>Department:</strong> <t t-esc="o.department_id.name"/></p>
+                <p><strong>Doctors:</strong>
+                  <t t-foreach="o.doctor_ids" t-as="doc">
+                    <t t-esc="doc.name"/><t t-if="not loop.last">, </t>
+                  </t>
+                </p>
+                <p><strong>User:</strong> <t t-esc="o.created_by.name"/></p>
+
+                <div>
+                  <strong>Image:</strong><br/>
+                  <img t-if="o.image" t-att-src="'data:image/png;base64,%s' % o.image.decode()" width="100"/>
+                </div>
+
+                <h4>Log History</h4>
+                <table class="table table-sm">
+                  <thead>
+                    <tr><th>Date</th><th>User</th><th>Info</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr t-foreach="o.log_ids" t-as="log">
+                      <td><t t-esc="log.date"/></td>
+                      <td><t t-esc="log.created_by.name"/></td>
+                      <td><t t-esc="log.description"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+         </t>
+    </t>
+  </template>
+</odoo>

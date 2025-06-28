@@ -1,0 +1,14 @@
+
+
+
+<odoo>
+<record id="action_patient_report" model="ir.actions.report">
+    <field name="name">Patient Report</field>
+    <field name="model">patient</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">iti_lab4.report_patient_template</field>
+    <field name="report_file">iti_lab4.report_patient_template</field>
+    <field name="binding_model_id" ref="model_patient"/>
+    <field name="binding_type">report</field>
+</record>
+</odoo>

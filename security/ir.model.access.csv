@@ -1,0 +1,13 @@
+
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+# User
+
+access_patient_user,access.patient.user,model_patient,iti_lab4.group_patient_user,1,1,1,0
+access_doctor_user,access.doctor.user,model_doctor,iti_lab4.group_patient_user,1,0,0,0
+access_department_user,access.department.user,model_department,iti_lab4.group_patient_user,1,0,0,0
+# Manager
+
+access_patient_manager,access.patient.manager,model_patient,iti_lab4.group_patient_manager,1,1,1,1
+access_doctor_manager,access.doctor.manager,model_doctor,iti_lab4.group_patient_manager,1,1,1,1
+access_department_manager,access.department.manager,model_department,iti_lab4.group_patient_manager,1,1,1,1
+

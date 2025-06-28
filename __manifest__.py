@@ -1,17 +1,22 @@
 {
-    'name': 'Lab 02',
-    'summary': 'Odoo Lab 02 Module',
-    'author': 'Youssef-Shaaban',
-    'category': 'Healthcare',
-    'version': '1.0',
-    'website': '',
-    'depends': ['base'],
-    'data': [
-        'views/patient_views.xml',
-        'views/doctor_views.xml',
-        'views/department_views.xml',
-        'views/base_menu.xml'
+    'name':'lab4',
+    'suammary':'ITI Hospital system',
+    'author':'Youssef-Shaaban',
+    'category':'Accounting',
+    'version':'0.1',
+    'depends':['crm','account','base'],
+    'data':[
+            'security/ir.model.access.csv',
+            'security/security.xml',
+            'security/rules.xml',
+            'views/menus.xml',
+            'views/departments_view.xml',
+            'views/doctors_view.xml',
+            'views/res_partner_view.xml',
+            'reports/patient_template.xml',
+            'reports/patient_report.xml',
+            'views/patient_view.xml',
     ],
     'installable': True,
-    'application': False,
+    'application': True
 }

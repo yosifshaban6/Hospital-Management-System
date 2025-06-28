@@ -1,3 +1,1 @@
-from . import patient_model
-from . import doctor_model
-from . import department_model
+from . import hms_departments,hms_doctors,patient,res_partner

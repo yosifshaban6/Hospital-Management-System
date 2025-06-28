@@ -1,0 +1,88 @@
+
+    <odoo>
+            <record id="patient_action" model="ir.actions.act_window">
+                <field name="name">Patient_action</field>
+                <field name="res_model">patient</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+          <!--    Tree  -->
+            <record id="patient_tree" model="ir.ui.view">
+                <field name="name">patient tree view</field>
+                <field name="model">patient</field>
+                 <field name="arch" type="xml">
+                     <tree>
+                         <field name= "first_name"/>
+                         <field name= "last_name"/>
+                         <field name= "department_id"/>
+                     </tree>
+                 </field>
+            </record>
+<!--        Form-->
+        <record id="patient_form_view" model="ir.ui.view">
+        <field name="name">Patient Form view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="confirm_action" string="Approve" type="object" />
+                    <button name="%(action_patient_report)d" type="action" string="Print Report" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <notebook>
+                         <page string="Patients infos">
+                           <group>
+                                <field name= "first_name"/>
+                               <field name= "last_name" />
+                               <field name= "birth_date" />
+                               <field name= "cr_ratio" />
+                               <field name= "blood_type" />
+<!--                               <field name= "history"  attrs="{'invisible':[('age','&lt;',50)]}"/>-->
+                               <field name= "age" readonly="1"/>
+                               <field name= "pcr" />
+                               <field name= "address"/>
+                               <field name="email" placeholder="patient@example.com"/>
+                               <field name= "image" />
+                               <field name= "state" />
+                                <field name= "department_id" domain="[('is_opened','=',True)]"/>
+                           </group>
+                       </page>
+                        <page string="DepartMent Info">
+                           <group>
+                                <field name="department_capacity" />
+<!--                               <field name="department_is_opened "/>-->
+                           </group>
+                        </page>
+                        <page string="Doctors Info">
+                           <group>
+                                <field name="doctor_ids" groups="iti_lab4.group_patient_manager"/>
+                           </group>
+                        </page>
+                        <page string="Patient logs">
+                           <group>
+                               <field name="log_ids" widget="one2many_list">
+                                    <tree>
+                                        <field name="created_by"/>
+                                        <field name="date"/>
+                                        <field name="description"/>
+                                    </tree>
+                                </field>
+                           </group>
+                        </page>
+                        <page string="Linked Customers">
+                            <group>
+                                <field name="related_partner_id">
+                                     <tree>
+                                        <field name="name"/>
+                                        <field name="email"/>
+                                        <field name="phone"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+        <menuitem id="patient_menu" name="patient" parent="hospital_menu" action="patient_action" />
+    </odoo>

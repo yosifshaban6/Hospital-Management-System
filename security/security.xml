@@ -1,0 +1,18 @@
+
+
+<odoo>
+
+<!--  User  -->
+    <data noupdate="1">
+        <record id="group_patient_user" model="res.groups">
+            <field name="name">Patient User</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+        <!--  Manager  -->
+        <record id="group_patient_manager" model="res.groups">
+            <field name="name">Patient Manager</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+    </data>
+</odoo>

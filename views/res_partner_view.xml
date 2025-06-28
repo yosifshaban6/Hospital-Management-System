@@ -1,0 +1,16 @@
+
+
+<odoo>
+    <record id="view_partner_form_inherit_patient" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.patient</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="after">
+                <group string="Patient Link">
+                    <field name="related_patient_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
